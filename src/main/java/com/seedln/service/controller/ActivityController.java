@@ -20,6 +20,6 @@ public class ActivityController {
     @RequestMapping(method = RequestMethod.POST)
     public String createActivity(@RequestBody Activity activity) {
         Activity result = activityManager.checkIfAcitivityExistsAndSave(activity);
-        return result.getName();
+        return result.getTitle();
     }
 }

@@ -12,10 +12,10 @@ import java.util.Set;
 @Table(name = "activities")
 public class Activity {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String title;
 
     private String type;
 
@@ -25,15 +25,15 @@ public class Activity {
                     CascadeType.MERGE
             })
     @JoinTable(
-            name = "tags_acitivies",
+            name = "tags_activities",
             joinColumns = @JoinColumn(name = "activities_id"),
             inverseJoinColumns = @JoinColumn(name = "tags_id")
     )
     Set<Tag> tags;
 
 
-    public Activity(String name, String type) {
-        this.name = name;
+    public Activity(String title, String type) {
+        this.title = title;
         this.type = type;
     }
 

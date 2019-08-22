@@ -4,16 +4,17 @@ drop view if exists tags_activities;
 
 create table if not exists tags (
 id bigserial primary key,
-tag varchar(250) not null,
-created_on timestamp not null
+tag varchar(250) not null
+--created_on date not null
 );
 
 create table if not exists activities (
 id bigserial primary key,
 title varchar(250) not null,
 type varchar(250) not null,
-estimated_time_in_minutes integer,
-created_on timestamp not null
+estimated_time_in_minutes integer
+
+--created_on date not null
 );
 
 create table if not exists tags_activities (

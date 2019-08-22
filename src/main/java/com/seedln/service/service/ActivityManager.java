@@ -19,6 +19,6 @@ public class ActivityManager {
         } catch (Exception ex){
             System.out.printf(ex.getMessage());
         }
-        return activity;
+        return new Activity("bolox", "bolox");
     }
 }
