@@ -1,5 +1,6 @@
 package com.seedln.service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,7 @@ public class Activity {
     private String title;
 
     private String type;
+
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {

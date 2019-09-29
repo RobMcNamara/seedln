@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/activities")
 public class ActivityController {
@@ -18,8 +20,12 @@ public class ActivityController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String createActivity(@RequestBody Activity activity) {
-        Activity result = activityManager.checkIfAcitivityExistsAndSave(activity);
-        return result.getTitle();
+    public Activity createActivity(@RequestBody Activity activity) {
+        return activityManager.checkIfAcitivityExistsAndSave(activity);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Activity> getActivities(){
+        return activityManager.getActivities();
     }
 }

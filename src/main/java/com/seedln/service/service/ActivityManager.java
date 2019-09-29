@@ -4,6 +4,8 @@ import com.seedln.service.model.Activity;
 import com.seedln.service.repo.ActivityRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActivityManager {
 
@@ -20,5 +22,9 @@ public class ActivityManager {
             System.out.printf(ex.getMessage());
         }
         return new Activity("bolox", "bolox");
+    }
+
+    public List<Activity> getActivities() {
+        return activityRepository.findAll();
     }
 }
