@@ -33,7 +33,11 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	compile "org.flywaydb:flyway-core:5.2.4"
+	compile 'org.springframework.kafka:spring-kafka:2.2.8.RELEASE'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation("com.h2database:h2:1.4.197")
+
+	testCompile group: 'org.springframework.kafka', name: 'spring-kafka-test', version: '2.2.6.RELEASE'
 
 }
