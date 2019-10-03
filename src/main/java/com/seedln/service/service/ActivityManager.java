@@ -17,11 +17,11 @@ public class ActivityManager {
 
     public Activity checkIfAcitivityExistsAndSave(Activity activity){
         try {
-            return  activityRepository.save(activity);
+            return activityRepository.save(activity);
         } catch (Exception ex){
             System.out.printf(ex.getMessage());
         }
-        return new Activity("bolox", "bolox");
+        return new Activity("error", "error");
     }
 
     public List<Activity> getActivities() {

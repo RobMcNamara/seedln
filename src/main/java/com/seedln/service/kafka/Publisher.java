@@ -1,5 +1,6 @@
 package com.seedln.service.kafka;
 
+import com.seedln.service.model.Activity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -12,11 +13,11 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 @Slf4j
 public class Publisher {
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, Activity> kafkaTemplate;
 
-    public void send(String topic, String payload) {
+    public void send(String topic, Activity payload) {
         log.info("Sending payload: " + payload + " on topic: " + topic);
-        ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(topic, "part1", payload);
+        ListenableFuture<SendResult<String, Activity>> result = kafkaTemplate.send(topic, "part1", payload);
 
         result.addCallback(new ListenableFutureCallback<>() {
             @Override
@@ -25,7 +26,7 @@ public class Publisher {
             }
 
             @Override
-            public void onSuccess(SendResult<String, String> result) {
+            public void onSuccess(SendResult<String, Activity> result) {
                 log.info("Sent with result: " + result.getRecordMetadata());
             }
         });

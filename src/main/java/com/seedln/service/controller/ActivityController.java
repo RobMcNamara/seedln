@@ -27,7 +27,7 @@ public class ActivityController {
     @RequestMapping(method = RequestMethod.POST)
     public Activity createActivity(@RequestBody Activity activity) {
         Activity result = activityManager.checkIfAcitivityExistsAndSave(activity);
-        publisher.send("activity", result.getTitle());
+        publisher.send("activity", result);
         return result;
     }
 
